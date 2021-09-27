@@ -16,5 +16,7 @@ RUN chmod +x /usr/local/bin/helm
 RUN curl -L -o /usr/local/bin/helmfile https://github.com/roboll/helmfile/releases/download/v0.140.1/helmfile_linux_amd64
 RUN chmod +x /usr/local/bin/helmfile
 
+RUN helm plugin install https://github.com/databus23/helm-diff
+
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]:
