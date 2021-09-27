@@ -13,5 +13,8 @@ RUN chmod +x /usr/bin/aws-iam-authenticator
 RUN wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm 
 RUN chmod +x /usr/local/bin/helm
 
+RUN curl -L -o /usr/local/bin/helmfile https://github.com/roboll/helmfile/releases/download/v0.140.1/helmfile_linux_amd64
+RUN chmod +x /usr/local/bin/helmfile
+
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]:
