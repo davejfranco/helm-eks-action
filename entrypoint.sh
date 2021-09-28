@@ -2,8 +2,10 @@
 
 set -e
 
-echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
-export KUBECONFIG="${PWD}/kubeconfig"
+mkdir $HOME/.kube
+echo ${KUBE_CONFIG_DATA} | base64 -d > $HOME/.kube/config
+chmod go-r ~/.kube/config
+export KUBECONFIG="${HOME}/.kube/config"
 
 echo "running entrypoint command(s)"
 
